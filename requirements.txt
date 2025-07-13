@@ -1,3 +1,7 @@
+scipy
+numpy
 pandas
+matplotlib
+seaborn
 pyarrow
 pandas-profiling
