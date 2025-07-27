@@ -85,10 +85,17 @@ I have created a reproducible data cleaning script that performs the following:
 
     
     * order_profit_per_order_distribution.png: Histogram showing the distribution of profit per order, indicating financial impact.
+      <img width="1000" height="600" alt="order_profit_per_order_distribution" src="https://github.com/user-attachments/assets/fdcfe3a6-7c2a-4c4b-80dc-c11682a2df2b" />
+
     
     * inter_arrival_time_distribution.png: Histogram showing the distribution of inter-arrival times between orders.
-    
+      <img width="1000" height="600" alt="inter_arrival_time_distribution" src="https://github.com/user-attachments/assets/086dc9bd-d9bf-456c-894b-26cd33d1e33f" />
+
     * delivery_status_count.png: Bar chart showing the counts of different delivery statuses.
+      <img width="1000" height="600" alt="delivery_status_count" src="https://github.com/user-attachments/assets/a3d491ff-bd25-4de1-941c-24a54227a0f2" />
+
     
     * late_delivery_risk_count.png: Bar chart showing the counts of orders with and without late delivery risk.
+      <img width="700" height="500" alt="late_delivery_risk_count" src="https://github.com/user-attachments/assets/cd5d4c91-d076-4ea0-a478-b5d942908689" />
+
 
