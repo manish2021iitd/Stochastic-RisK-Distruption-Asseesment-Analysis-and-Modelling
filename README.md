@@ -52,3 +52,43 @@ Based on the DataCoSupplyChainDataset.csv file, here's a mapping of relevant fie
     * Shipping Mode: Indicates the method of transport (e.g., Standard Class), which can be analyzed for its correlation with delays.
     
     * Order City, Order Country, Order Region, Order State: Geographical information about the order's destination or origin, important for understanding regional disruption patterns.
+
+## 2. Data Cleaning
+I have created a reproducible data cleaning script that performs the following:
+
+* Imports the raw dataset: The script loads DataCoSupplyChainDataset.csv.
+
+* Handles missing values:
+
+    * Customer Lname was filled with 'Unknown'.
+    
+    * Customer Zipcode was filled with the mode.
+    
+    * Order Zipcode was filled with 0 due to a high percentage of missing values.
+    
+    * Product Description (which was entirely empty) was dropped.
+
+* Converts dates:
+
+    * order date (DateOrders) and shipping date (DateOrders) were converted to datetime objects.
+    
+    * New features delivery_duration_actual, delivery_duration_scheduled, shipping_delay_days, and inter_arrival_time (time between consecutive orders for each customer) were engineered.
+    
+    * Normalises units: Column names related to profit and sales were renamed for consistency (e.g., Order Profit Per Order to order_profit_per_order). No explicit unit conversion was required as the data appeared to be in consistent units.
+
+* Outputs a cleaned CSV: A cleaned dataset named cleaned_supply_chain_data.csv has been saved to your environment.
+
+* Basic EDA charts: The following basic EDA charts have been generated to visualize key distributions:
+
+    * shipping_delay_days_distribution.png: Histogram showing the distribution of shipping delays.
+      <img width="1000" height="600" alt="shipping_delay_days_distribution" src="https://github.com/user-attachments/assets/1b1466e9-3d49-4854-a2a7-7fbeb633973c" />
+
+    
+    * order_profit_per_order_distribution.png: Histogram showing the distribution of profit per order, indicating financial impact.
+    
+    * inter_arrival_time_distribution.png: Histogram showing the distribution of inter-arrival times between orders.
+    
+    * delivery_status_count.png: Bar chart showing the counts of different delivery statuses.
+    
+    * late_delivery_risk_count.png: Bar chart showing the counts of orders with and without late delivery risk.
+
