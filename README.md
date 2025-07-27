@@ -119,3 +119,6 @@ I have implemented a prototype for fitting common probability distributions to k
 The following table summarizes the fitted parameters, Kolmogorov-Smirnov (KS) p-value, Akaike Information Criterion (AIC), and Bayesian Information Criterion (BIC) for each distribution. Lower AIC/BIC values generally indicate a better fit, while a higher KS p-value suggests that the data distribution is similar to the fitted distribution.
     <img width="864" height="191" alt="Screenshot 2025-07-27 at 7 28 26 PM" src="https://github.com/user-attachments/assets/8cae5e6d-9d84-4f5a-acde-362065e12ebc" />
 
+* You can find the full comparison table in the file distribution_fitting_comparison_table.csv.
+
+* For each variable and distribution, a plot visualizing the fitted probability density function (PDF) against the empirical data histogram has been generated (e.g., fit_plot_inter-arrival_time_(days)_exponential.png, fit_plot_order_profit_per_order_weibull.png, etc.). These plots help in visually assessing the goodness of fit.
