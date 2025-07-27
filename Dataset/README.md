@@ -1,4 +1,5 @@
-# DataCo SMART SUPPLY CHAIN
+# DataCo SMART SUPPLY CHAIN DATASET
+
 * Source: Mendeley: DOI 10.17632/8gx2fvg2k6.3 
 * Data size:
   * Total rows: 180,519
