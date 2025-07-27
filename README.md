@@ -81,6 +81,7 @@ I have created a reproducible data cleaning script that performs the following:
 * Basic EDA charts: The following basic EDA charts have been generated to visualize key distributions:
 
     * shipping_delay_days_distribution.png: Histogram showing the distribution of shipping delays.
+      
       <img width="1000" height="600" alt="shipping_delay_days_distribution" src="https://github.com/user-attachments/assets/1b1466e9-3d49-4854-a2a7-7fbeb633973c" />
 
     
