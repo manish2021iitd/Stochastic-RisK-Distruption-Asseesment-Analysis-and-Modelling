@@ -86,17 +86,37 @@ I have created a reproducible data cleaning script that performs the following:
 
     
     * order_profit_per_order_distribution.png: Histogram showing the distribution of profit per order, indicating financial impact.
+      
       <img width="1000" height="600" alt="order_profit_per_order_distribution" src="https://github.com/user-attachments/assets/fdcfe3a6-7c2a-4c4b-80dc-c11682a2df2b" />
 
     
     * inter_arrival_time_distribution.png: Histogram showing the distribution of inter-arrival times between orders.
+      
       <img width="1000" height="600" alt="inter_arrival_time_distribution" src="https://github.com/user-attachments/assets/086dc9bd-d9bf-456c-894b-26cd33d1e33f" />
 
     * delivery_status_count.png: Bar chart showing the counts of different delivery statuses.
+      
       <img width="1000" height="600" alt="delivery_status_count" src="https://github.com/user-attachments/assets/a3d491ff-bd25-4de1-941c-24a54227a0f2" />
 
     
     * late_delivery_risk_count.png: Bar chart showing the counts of orders with and without late delivery risk.
+      
       <img width="700" height="500" alt="late_delivery_risk_count" src="https://github.com/user-attachments/assets/cd5d4c91-d076-4ea0-a478-b5d942908689" />
 
+
+## 3. Distribution Fitting Prototype
+I have implemented a prototype for fitting common probability distributions to key variables (inter_arrival_time and order_profit_per_order).
+
+* Key Variables Analyzed:
+
+    * Inter-Arrival Time (Days)
+    
+    * Order Profit Per Order (Note: For this variable, Lognormal and Pareto distributions were fitted only to positive values, as these distributions are defined for positive inputs. This limitation should be considered for variables with both positive and negative values like profit/loss.)
+
+* Distributions Fitted: Exponential, Weibull, Lognormal, and Pareto.
+
+* Parameter Estimates + Goodness-of-Fit Metrics:
+The following table summarizes the fitted parameters, Kolmogorov-Smirnov (KS) p-value, Akaike Information Criterion (AIC), and Bayesian Information Criterion (BIC) for each distribution. Lower AIC/BIC values generally indicate a better fit, while a higher KS p-value suggests that the data distribution is similar to the fitted distribution.
+
+<img width="864" height="191" alt="Screenshot 2025-07-27 at 7 28 26 PM" src="https://github.com/user-attachments/assets/8cae5e6d-9d84-4f5a-acde-362065e12ebc" />
 
