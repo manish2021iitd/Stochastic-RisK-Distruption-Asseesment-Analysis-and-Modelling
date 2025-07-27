@@ -104,7 +104,7 @@ I have created a reproducible data cleaning script that performs the following:
       <img width="700" height="500" alt="late_delivery_risk_count" src="https://github.com/user-attachments/assets/cd5d4c91-d076-4ea0-a478-b5d942908689" />
 
 
-## 3. Distribution Fitting Prototype
+## 3. Distribution Fitting 
 I have implemented a prototype for fitting common probability distributions to key variables (inter_arrival_time and order_profit_per_order).
 
 * Key Variables Analyzed:
