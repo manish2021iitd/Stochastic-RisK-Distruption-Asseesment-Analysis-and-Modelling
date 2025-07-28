@@ -121,4 +121,28 @@ The following table summarizes the fitted parameters, Kolmogorov-Smirnov (KS) p-
 
 * You can find the full comparison table in the file distribution_fitting_comparison_table.csv.
 
-* For each variable and distribution, a plot visualizing the fitted probability density function (PDF) against the empirical data histogram has been generated (e.g., fit_plot_inter-arrival_time_(days)_exponential.png, fit_plot_order_profit_per_order_weibull.png, etc.). These plots help in visually assessing the goodness of fit.
+* For each variable and distribution, a plot visualizing the fitted probability density function (PDF) against the empirical data histogram has been generated:
+ *  fit_plot_inter-arrival_time_(days)_exponential.png,
+   From the distribution fitting comparison table, the Exponential distribution for 'Inter-Arrival Time (Days)' has the following characteristics:
+    
+    Parameters: loc = 1.0, scale = 160.952
+    
+    In the context of the Exponential distribution, loc typically represents the minimum value or a shift parameter, and scale is the inverse of the rate parameter (λ). So, a scale of approximately 160.952 implies an average inter-arrival time of about 160.952 days.
+    
+    KS p-value: 2.88×10^{-10}
+     
+    
+    A very low p-value (much less than 0.05) indicates that the null hypothesis (that the data comes from an Exponential distribution) is rejected. This suggests that the Exponential distribution does not provide a statistically good fit for the 'Inter-Arrival Time (Days)' data according to the Kolmogorov-Smirnov test.
+    
+    AIC (Akaike Information Criterion): 545577
+    
+    BIC (Bayesian Information Criterion): 545594
+    
+    AIC and BIC are used for model comparison, where lower values generally indicate a better fit. When compared to the Weibull distribution (AIC: 545553, BIC: 545580) for 'Inter-Arrival Time (Days)', the Exponential distribution has slightly higher AIC and BIC values, suggesting that the Weibull distribution provides a marginally better fit according to these criteria.
+    
+    Looking at the "Inter-Arrival Time (Days) - Exponential Fit" plot, we can visually assess how well the red line (fitted Exponential PDF) aligns with the grey bars (empirical data histogram). While the Exponential distribution captures the overall decaying shape, it might not perfectly represent the nuances of the data's distribution, especially if there are initial peaks or different decay rates not captured by a single exponential.
+    
+    While the Exponential distribution is a common choice for modeling inter-arrival times (especially in Poisson processes), the low KS p-value suggests it might not be the most appropriate fit for your specific 'Inter-Arrival Time (Days)' data from a statistical standpoint. The Weibull distribution appears to offer a slightly better fit based on the AIC and BIC values.
+ *  fit_plot_order_profit_per_order_weibull.png,
+ *  
+ * These plots help in visually assessing the goodness of fit.
