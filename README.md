@@ -202,7 +202,22 @@ The following table summarizes the fitted parameters, Kolmogorov-Smirnov (KS) p-
         * Based on all metrics (extremely low KS p-value, unusual and large parameter values, and higher AIC/BIC compared to Weibull), the Pareto distribution is not a suitable fit for modeling the 'Inter-Arrival Time (Days)' data. Its fit is statistically poor and the estimated parameters are highly implausible for a typical long-tail phenomenon. Among the distributions tested, the Weibull distribution provided the relatively best fit for 'Inter-Arrival Time (Days)', although its KS p-value was also low, suggesting that none of the tested simple parametric distributions perfectly describe the data.
             
     * Order Profit Per Order - Exponential Fit:
-    
+      From the distribution fitting comparison table, the Exponential distribution for 'Order Profit Per Order' has the following characteristics:
+      <img width="1000" height="600" alt="fit_plot_order_profit_per_order_exponential" src="https://github.com/user-attachments/assets/bec1e8ef-e731-4ef2-804a-69dc4b6d4810" />
+
+        * Parameters: loc = 0.08, scale = 53.853
+        Similar to the inter-arrival time, loc represents a shift, and scale is related to the average value. A loc of approximately 0.08 indicates the distribution starts slightly above zero. The scale of 53.853 suggests an average profit per order of around this value, given that the fit was performed only on the positive profit values. As a reminder, Exponential distributions are defined for non-negative values. My fitting process considered only the positive values of 'Order Profit Per Order' for this distribution due to its mathematical definition.
+        
+        * KS p-value: 0
+        An extremely low (effectively zero) p-value indicates a strong rejection of the null hypothesis that the data comes from an Exponential distribution. This suggests that the Exponential distribution does not provide a statistically good fit for the 'Order Profit Per Order' data, particularly when considering the entire range of profit (including negative values that were excluded for fitting this specific distribution).
+        
+        * AIC (Akaike Information Criterion): 1,451,586 and BIC (Bayesian Information Criterion): 1,451,606
+        These values are quite high. When compared to the Weibull distribution (AIC: 1,443,710, BIC: 1,443,740) and Lognormal distribution (AIC: 1,449,940, BIC: 1,449,970) for 'Order Profit Per Order', the Exponential distribution has higher AIC and BIC values, indicating that it is a poorer fit compared to Weibull and Lognormal distributions for this variable (even when considering only the positive portion of the data for Lognormal and Pareto).
+        
+        * Looking at the "Order Profit Per Order - Exponential Fit" plot, you would likely observe that the fitted Exponential PDF (red line) does not closely align with the shape of the empirical data histogram (grey bars), especially given that the original 'Order Profit Per Order' data includes negative values (losses) that the Exponential distribution cannot directly model. The fit is only for positive profits.
+        
+        * Based on all metrics (extremely low KS p-value, and significantly higher AIC/BIC compared to better-fitting distributions like Weibull and Lognormal for positive profits), the Exponential distribution is not a suitable fit for modeling 'Order Profit Per Order', particularly considering the full range of profit/loss values. Its fit is statistically poor even for the positive subset of the data, and other distributions perform much better. For a comprehensive model of profit, a distribution or method that can account for both positive and negative values would be more appropriate.
+            
     * Order Profit Per Order - Weibull Fit:
     
     * Order Profit Per Order - Lognormal Fit:
