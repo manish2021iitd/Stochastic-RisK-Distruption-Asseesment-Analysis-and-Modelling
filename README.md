@@ -139,19 +139,24 @@ The following table summarizes the fitted parameters, Kolmogorov-Smirnov (KS) p-
         
         * While the Exponential distribution is a common choice for modeling inter-arrival times (especially in Poisson processes), the low KS p-value suggests it might not be the most appropriate fit for your specific 'Inter-Arrival Time (Days)' data from a statistical standpoint. The Weibull distribution appears to offer a slightly better fit based on the AIC and BIC values.
           
-     *  Inter-Arrival Time (Days) - Weibull Fit:
-       From the distribution fitting comparison table, the Weibull distribution for 'Inter-Arrival Time (Days)' has the following characteristics:
+     *  Inter-Arrival Time (Days) - Weibull Fit: From the distribution fitting comparison table, the Weibull distribution for 'Inter-Arrival Time (Days)' has the following characteristics:
            <img width="1000" height="600" alt="fit_plot_inter-arrival_time_(days)_weibull" src="https://github.com/user-attachments/assets/e2f7140c-680b-4c3b-8285-29b9829a8aa7" />
+       
             * Parameters: shape = 1.024, loc = 0.974, scale = 162.487 
             In the context of the Weibull distribution:shape (also known as the 'k' parameter) describes the shape of the distribution. A value close to 1 (like 1.024) indicates a distribution that is very similar to an Exponential distribution. If it were significantly less than 1, it would imply a decreasing failure rate (e.g., infant mortality), and if significantly greater than 1, an increasing failure rate (e.g., wear-out failures).
+        
             * loc (location parameter) shifts the distribution along the x-axis. A value of approximately 0.974 means the distribution effectively starts slightly after 0.
             scale (also known as the 'lambda' parameter) is a characteristic life parameter, similar to the mean in an exponential distribution. A value of 162.487 suggests that 63.2% of events occur by this time.
+        
             * KS p-value: 7.36×10^−7
              Similar to the Exponential fit, a very low p-value (much less than 0.05) indicates that the null hypothesis (that the data comes from a Weibull distribution) is rejected. This suggests that even the Weibull distribution does not provide a statistically good fit for the 'Inter-Arrival Time (Days)' data according to the Kolmogorov-Smirnov test.
+        
             * AIC (Akaike Information Criterion): 545553
             BIC (Bayesian Information Criterion): 545580
             Comparing these to the Exponential fit (AIC: 545577, BIC: 545594), the Weibull distribution has slightly lower AIC and BIC values. This indicates that, according to these information criteria, the Weibull distribution is a marginally better model for this data compared to the Exponential distribution, despite both having low KS p-values.
+
             * Looking at the "Inter-Arrival Time (Days) - Weibull Fit" plot, you can visually assess how well the red line (fitted Weibull PDF) aligns with the grey bars (empirical data histogram). Given that the shape parameter is close to 1, the Weibull curve will closely resemble the Exponential curve, reflecting similar characteristics in terms of decreasing probability density over time.
+        
             * While the Weibull distribution (especially with a shape parameter close to 1) is a strong candidate for modeling inter-arrival times, the low KS p-value still suggests that it might not be a perfect statistical fit for your 'Inter-Arrival Time (Days)' data. However, based on the AIC and BIC, it is a better fit than the Exponential distribution among the distributions tested. The visual fit should also be considered, as slight deviations might not always be captured by goodness-of-fit tests alone, especially with large datasets. The very small p-values for both Exponential and Weibull might indicate that the empirical distribution has characteristics that are not fully captured by these simple parametric forms, or that with a large dataset, even small deviations from the theoretical distribution lead to statistical rejection.
                
     * Inter-Arrival Time (Days) - Lognormal Fit
