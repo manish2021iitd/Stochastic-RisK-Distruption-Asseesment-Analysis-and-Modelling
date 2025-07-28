@@ -219,9 +219,67 @@ The following table summarizes the fitted parameters, Kolmogorov-Smirnov (KS) p-
         * Based on all metrics (extremely low KS p-value, and significantly higher AIC/BIC compared to better-fitting distributions like Weibull and Lognormal for positive profits), the Exponential distribution is not a suitable fit for modeling 'Order Profit Per Order', particularly considering the full range of profit/loss values. Its fit is statistically poor even for the positive subset of the data, and other distributions perform much better. For a comprehensive model of profit, a distribution or method that can account for both positive and negative values would be more appropriate.
             
     * Order Profit Per Order - Weibull Fit:
-    
+      From the distribution fitting comparison table, the Weibull distribution for 'Order Profit Per Order' has the following characteristics:
+      <img width="1000" height="600" alt="fit_plot_order_profit_per_order_weibull" src="https://github.com/user-attachments/assets/45da32e8-37ba-4df0-9d66-14af95a0b883" />
+
+        * Parameters: shape = 1.206, loc = 0.080, scale = 57.394
+        The shape parameter (k) of 1.206 indicates that the rate of "failure" (or in this context, the probability density of a certain profit value) is slightly increasing over the range of profit values.
+        
+        * The loc parameter of 0.080 suggests a slight shift, indicating that the distribution effectively starts just above zero.
+        The scale parameter (lambda) of 57.394 is related to the characteristic life, meaning that about 63.2% of the positive profit values fall below this point.
+        As with other distributions that require non-negative inputs, this fit was performed only on the positive profit values from 'Order Profit Per Order'.
+        
+        * KS p-value: 1.399×10^−10
+        While extremely low, this p-value is still a strong indication that the Weibull distribution statistically does not perfectly fit the 'Order Profit Per Order' data (considering only positive profits) according to the Kolmogorov-Smirnov test. The null hypothesis that the data comes from a Weibull distribution is rejected.
+        
+        * AIC (Akaike Information Criterion): 1,443,710 and BIC (Bayesian Information Criterion): 1,443,740
+        These are the lowest AIC and BIC values among all the distributions fitted for 'Order Profit Per Order'. Lower AIC and BIC values suggest a better model fit. This indicates that, among the distributions tested, the Weibull distribution provides the relatively best fit for the positive values of 'Order Profit Per Order' according to these information criteria.
+        
+        * Looking at the "Order Profit Per Order - Weibull Fit" plot, you can visually assess how well the red line (fitted Weibull PDF) aligns with the grey bars (empirical data histogram for positive profits). You would likely observe that the Weibull curve provides a reasonable representation of the positive profit distribution, better than the Exponential.
+        
+        * The Weibull distribution provides the best fit for the positive values of 'Order Profit Per Order' among the distributions tested, as indicated by its lowest AIC and BIC values. However, it's crucial to remember that the fit was performed only on the positive subset of the data because the Weibull distribution, like Exponential and Pareto, is inherently defined for non-negative values. The extremely low KS p-value still suggests a statistically significant difference between the empirical data and the fitted distribution, which is common with large datasets where even minor deviations can lead to rejection. For a complete model of 'Order Profit Per Order' that includes negative values (losses), a different modeling approach or a more complex distribution capable of handling both positive and negative values would be required.
+            
     * Order Profit Per Order - Lognormal Fit:
-    
+      From the distribution fitting comparison table, the Lognormal distribution for 'Order Profit Per Order' has the following characteristics:
+      <img width="1000" height="600" alt="fit_plot_order_profit_per_order_lognormal" src="https://github.com/user-attachments/assets/1804a61d-6bbe-4407-b741-1e386a6c12fd" />
+
+        * Parameters: shape = 0.739, loc = -7.734, scale = 47.688
+        The shape parameter of 0.739 indicates a right-skewed distribution, which is characteristic of the Lognormal distribution.
+        
+        * The loc parameter, which represents a shift, is a negative value (-7.734). While the Lognormal distribution is defined for positive values, the scipy.stats implementation allows for a shift parameter. This negative loc means the distribution effectively starts before zero, even though the data used for fitting was filtered to include only positive profit values. This can sometimes occur when the fitted distribution is attempting to model a distribution that starts very close to zero or has a high density near the origin.
+        The scale parameter of 47.688 is related to the median of the underlying normal distribution.
+        As with other distributions that require non-negative inputs, this fit was performed only on the positive profit values from 'Order Profit Per Order'.
+        
+        * KS p-value: 1.338×10^−155
+        This is an extremely low (effectively zero) p-value. This indicates a very strong rejection of the null hypothesis that the data comes from a Lognormal distribution. This suggests that the Lognormal distribution does not provide a statistically good fit for the 'Order Profit Per Order' data, even when considering only the positive portion.
+        
+        * AIC (Akaike Information Criterion): 1,449,940 and BIC (Bayesian Information Criterion): 1,449,970
+        These values are lower than those for the Exponential and Pareto distributions, but higher than the Weibull distribution (AIC: 1,443,710, BIC: 1,443,740). This suggests that while Lognormal is better than Exponential and Pareto for positive profits, the Weibull distribution still provides a comparatively better fit according to these information criteria.
+        
+        * Looking at the "Order Profit Per Order - Lognormal Fit" plot, you would likely observe that the fitted Lognormal PDF (red line) might not perfectly capture the shape of the empirical data histogram (grey bars) for positive profits. While it may follow the general trend, discrepancies might be visible, particularly in the tails or peak of the distribution.
+        
+        * Based on the extremely low KS p-value, the Lognormal distribution does not provide a statistically good fit for the positive values of 'Order Profit Per Order'. While its AIC/BIC values are better than Exponential and Pareto, the Weibull distribution still outperformed it for this variable. It is important to remember that this analysis is based solely on the positive profit values, as the Lognormal distribution does not natively handle negative values. For a complete understanding of 'Order Profit Per Order' that includes both profits and losses, a different modeling approach would be necessary.
+            
     * Order Profit Per Order - Pareto Fit:
+      From the distribution fitting comparison table, the Pareto distribution for 'Order Profit Per Order' has the following characteristics:
+      <img width="1000" height="600" alt="fit_plot_order_profit_per_order_pareto" src="https://github.com/user-attachments/assets/9a928e4f-0f30-46af-9b3b-aec0f0db7388" />
+
+
+        * Parameters: shape = 39876410.26, loc = -2147483647.92, scale = 2147483648.0
+        Similar to the Pareto fit for 'Inter-Arrival Time (Days)', the shape parameter (alpha) is extremely large (almost 40 million). This indicates an extremely steep decay, implying that values much larger than the minimum are highly unlikely.
+        
+        * The loc parameter is a very large negative value, and the scale parameter is an equally large positive value. These are indicative of a degenerate or poor fit, where the optimization algorithm struggled to find meaningful parameters that describe the data. It suggests that the fit is attempting to model a distribution that is almost a point mass, which is often observed when the actual data does not possess the long-tail characteristics that a Pareto distribution is designed to model.
+        
+        * As with other distributions that require non-negative inputs, this fit was performed only on the positive profit values from 'Order Profit Per Order'.
+        
+        * KS p-value: 0
+        An extremely low (effectively zero) p-value indicates a very strong rejection of the null hypothesis that the data comes from a Pareto distribution. This suggests that the Pareto distribution does not provide a statistically good fit for the 'Order Profit Per Order' data, even when considering only the positive portion.
+        
+        * AIC (Akaike Information Criterion): 1,451,588 and BIC (Bayesian Information Criterion): 1,451,618
+        These values are the highest among all the distributions fitted for 'Order Profit Per Order'. Higher AIC and BIC values indicate a poorer model fit. This confirms that the Pareto distribution is the worst fit among the tested distributions for the positive values of 'Order Profit Per Order'.
+        
+        * Looking at the "Order Profit Per Order - Pareto Fit" plot, you would likely observe that the fitted Pareto PDF (red line) would be a very steep, rapidly decaying curve that does not effectively capture the distribution of your empirical data (grey bars), especially given the extremely large shape parameter.
+        
+        * Based on all metrics (extremely low KS p-value, highly unusual and large parameter values, and the highest AIC/BIC), the Pareto distribution is the least suitable fit for modeling the 'Order Profit Per Order' data, even when considering only the positive values. Its fit is statistically very poor, and the estimated parameters are implausible for a typical long-tail phenomenon. For modeling 'Order Profit Per Order', especially considering both profits and losses, a more robust and appropriate distribution or modeling approach would be necessary.
 
 * These plots help in visually assessing the goodness of fit.
