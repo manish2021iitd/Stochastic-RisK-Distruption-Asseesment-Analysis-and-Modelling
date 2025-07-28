@@ -159,16 +159,35 @@ The following table summarizes the fitted parameters, Kolmogorov-Smirnov (KS) p-
     
         * While the Weibull distribution (especially with a shape parameter close to 1) is a strong candidate for modeling inter-arrival times, the low KS p-value still suggests that it might not be a perfect statistical fit for your 'Inter-Arrival Time (Days)' data. However, based on the AIC and BIC, it is a better fit than the Exponential distribution among the distributions tested. The visual fit should also be considered, as slight deviations might not always be captured by goodness-of-fit tests alone, especially with large datasets. The very small p-values for both Exponential and Weibull might indicate that the empirical distribution has characteristics that are not fully captured by these simple parametric forms, or that with a large dataset, even small deviations from the theoretical distribution lead to statistical rejection.
            
-    * Inter-Arrival Time (Days) - Lognormal Fit
+    * Inter-Arrival Time (Days) - Lognormal Fit:
+      From the distribution fitting comparison table, the Lognormal distribution for 'Inter-Arrival Time (Days)' has the following characteristics:
+      <img width="1000" height="600" alt="fit_plot_inter-arrival_time_(days)_lognormal" src="https://github.com/user-attachments/assets/42209b0e-2ea9-48da-b0d9-eaadc90d379f" />
+      
+        * Parameters: shape = 0.906, loc = -14.743, scale = 122.389
+        The shape parameter (often denoted as 's' or 'sigma') determines the skewness of the distribution. A value of 0.906 indicates a right-skewed distribution, which is typical for Lognormal distributions.
+        
+        * The loc parameter (location) shifts the distribution. A negative loc of -14.743 is unusual as inter-arrival times are non-negative. This might indicate that the fitting algorithm is using a general form of the Lognormal distribution that allows for a negative shift, even if the actual data is strictly positive. However, since we filtered for data_series > 0, the fitted loc might be trying to account for the left tail's behavior.
+        
+        * The scale parameter (often denoted as 'exp(mu)') is related to the median of the distribution. A value of 122.389 suggests a central tendency around this value after transformation.
+        
+        * KS p-value: 8.13×10^−65
+        This is an extremely low p-value, even lower than those for the Exponential and Weibull distributions. This strongly indicates that the Lognormal distribution does not provide a good statistical fit for the 'Inter-Arrival Time (Days)' data according to the Kolmogorov-Smirnov test. The null hypothesis that the data comes from a Lognormal distribution is unequivocally rejected.
+        
+        * AIC (Akaike Information Criterion): 549754, BIC (Bayesian Information Criterion): 549780
+        These values are significantly higher than those for the Exponential (AIC: 545577, BIC: 545594) and Weibull (AIC: 545553, BIC: 545580) distributions. This further confirms that the Lognormal distribution is a worse fit compared to the other two for 'Inter-Arrival Time (Days)', based on information criteria.
+        
+        *Looking at the "Inter-Arrival Time (Days) - Lognormal Fit" plot, you would likely observe that the fitted Lognormal PDF (red line) does not closely follow the shape of the empirical data histogram (grey bars). The pronounced right skewness inherent in the Lognormal might not align well with the actual distribution of your inter-arrival times, especially if your data is more indicative of a constant rate (exponential-like) or has a more complex shape.
+        
+        * Based on all metrics (extremely low KS p-value, and significantly higher AIC/BIC compared to other fits), the Lognormal distribution is the least suitable among the tested distributions for modeling the 'Inter-Arrival Time (Days)' data. Its fit is statistically poor, and information criteria also disfavor it. You should prioritize other distributions (like Weibull or Exponential) for this variable, even though their KS p-values were also low, their AIC/BIC values were much better.
+            
+    * Inter-Arrival Time (Days) - Pareto Fit:
     
-    * Inter-Arrival Time (Days) - Pareto Fit
+    * Order Profit Per Order - Exponential Fit:
     
-    * Order Profit Per Order - Exponential Fit
+    * Order Profit Per Order - Weibull Fit:
     
-    * Order Profit Per Order - Weibull Fit
+    * Order Profit Per Order - Lognormal Fit:
     
-    * Order Profit Per Order - Lognormal Fit
-    
-    * Order Profit Per Order - Pareto Fit
-       
- * These plots help in visually assessing the goodness of fit.
+    * Order Profit Per Order - Pareto Fit:
+
+* These plots help in visually assessing the goodness of fit.
