@@ -196,7 +196,7 @@ The following table summarizes the fitted parameters, Kolmogorov-Smirnov (KS) p-
         
         * AIC (Akaike Information Criterion): 545579 and BIC (Bayesian Information Criterion): 545605
         These values are higher than those for the Weibull distribution (AIC: 545553, BIC: 545580) and very similar to the Exponential distribution (AIC: 545577, BIC: 545594). Compared to Lognormal, Pareto is better, but among the Exponential, Weibull, and Pareto, Weibull remains the best based on AIC/BIC. The very high magnitude of the parameters, combined with the low p-value and relatively higher AIC/BIC, strongly suggests that the Pareto distribution is not a suitable model for this dataset.
-        
+
         * Looking at the "Inter-Arrival Time (Days) - Pareto Fit" plot, you would likely see that the fitted Pareto PDF (red line) would be a very steep, rapidly decaying curve that does not effectively capture the distribution of your empirical data (grey bars), especially given the extremely large shape parameter.
         
         * Based on all metrics (extremely low KS p-value, unusual and large parameter values, and higher AIC/BIC compared to Weibull), the Pareto distribution is not a suitable fit for modeling the 'Inter-Arrival Time (Days)' data. Its fit is statistically poor and the estimated parameters are highly implausible for a typical long-tail phenomenon. Among the distributions tested, the Weibull distribution provided the relatively best fit for 'Inter-Arrival Time (Days)', although its KS p-value was also low, suggesting that none of the tested simple parametric distributions perfectly describe the data.
