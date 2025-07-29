@@ -97,7 +97,22 @@ I have created a reproducible data cleaning script that performs the following:
       
       <img width="1000" height="600" alt="order_profit_per_order_distribution" src="https://github.com/user-attachments/assets/fdcfe3a6-7c2a-4c4b-80dc-c11682a2df2b" />
 
-    
+        * The distribution appears to be multimodal or at least highly irregular, with significant density both around positive values and a notable presence of negative values. This indicates that the profit per order can vary widely, including instances of losses.
+        
+        * Crucially, the histogram clearly shows bars to the left of zero, representing orders where a loss was incurred. This is a key characteristic that many standard positive-only distributions (like Exponential, Weibull, Lognormal, Pareto) cannot directly model.
+        
+        * There seems to be a concentration of profits around certain positive values, and another concentration around zero or slightly negative, likely indicating typical profit margins versus breakeven or loss-making orders.
+        
+        * The profit/loss extends over a wide range, from significant losses to substantial profits.
+        
+        * This variable is a direct measure of the financial impact of each order, and thus, implicitly, the financial severity of any disruption associated with that order. The presence of negative values means that a simple single-distribution fit for the entire range is challenging. For robust modeling, it might require:
+        
+            * Modeling positive profits and negative losses separately.
+            
+            * Using distributions that can handle both positive and negative values (e.g., normal, logistic, or a mixture of distributions).
+            
+            * Applying transformations to make the data amenable to positive-only distributions, but then interpreting results back in the original scale.
+                
     * inter_arrival_time_distribution.png: Histogram showing the distribution of inter-arrival times between orders.
       
       <img width="1000" height="600" alt="inter_arrival_time_distribution" src="https://github.com/user-attachments/assets/086dc9bd-d9bf-456c-894b-26cd33d1e33f" />
