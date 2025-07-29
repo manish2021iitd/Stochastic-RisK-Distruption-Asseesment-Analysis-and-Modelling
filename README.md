@@ -83,6 +83,7 @@ I have created a reproducible data cleaning script that performs the following:
     * shipping_delay_days_distribution.png: Histogram showing the distribution of shipping delays.
       
       <img width="1000" height="600" alt="shipping_delay_days_distribution" src="https://github.com/user-attachments/assets/1b1466e9-3d49-4854-a2a7-7fbeb633973c" />
+        
         * The distribution is highly skewed to the right, with a long tail. This indicates that most orders experience little to no delay, but a smaller number of orders experience significant delays.
         
         * The highest frequency (mode) is at or very close to zero, meaning a large majority of shipments are either on time or have minimal delays.
