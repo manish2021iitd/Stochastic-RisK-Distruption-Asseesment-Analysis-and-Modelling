@@ -83,6 +83,13 @@ I have created a reproducible data cleaning script that performs the following:
     * shipping_delay_days_distribution.png: Histogram showing the distribution of shipping delays.
       
       <img width="1000" height="600" alt="shipping_delay_days_distribution" src="https://github.com/user-attachments/assets/1b1466e9-3d49-4854-a2a7-7fbeb633973c" />
+        * The distribution is highly skewed to the right, with a long tail. This indicates that most orders experience little to no delay, but a smaller number of orders experience significant delays.
+        
+        * The highest frequency (mode) is at or very close to zero, meaning a large majority of shipments are either on time or have minimal delays.
+        
+        * The delays extend to a considerable number of days, indicating that while rare, some shipments can be severely delayed.
+        
+        * This distribution highlights that while most of the supply chain operates efficiently in terms of shipping time, there are critical instances of substantial delays that could lead to significant disruptions, customer dissatisfaction, and potentially increased costs. Understanding the characteristics of this tail is crucial for identifying and mitigating high-impact disruption risks.
 
     
     * order_profit_per_order_distribution.png: Histogram showing the distribution of profit per order, indicating financial impact.
