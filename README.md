@@ -116,6 +116,13 @@ I have created a reproducible data cleaning script that performs the following:
     * inter_arrival_time_distribution.png: Histogram showing the distribution of inter-arrival times between orders.
       
       <img width="1000" height="600" alt="inter_arrival_time_distribution" src="https://github.com/user-attachments/assets/086dc9bd-d9bf-456c-894b-26cd33d1e33f" />
+        * The distribution is highly skewed to the right, with a long tail. There's a high frequency of short inter-arrival times (many orders occurring relatively close to each other) and a decreasing frequency as inter-arrival time increases. This is a common pattern for arrival processes.
+
+        * The highest frequency (mode) is very close to zero or at zero, indicating that a significant number of orders follow very quickly after the previous one for the same customer. (Note: Our fitting process for distributions like Pareto and Lognormal excluded 0 values as they are not defined for 0, and 0 in this context represented the first order for a customer rather than an actual interval).
+        
+        * While most inter-arrival times are short, there are instances of very long intervals between orders, forming the long tail.
+        
+        * This variable is crucial for understanding the frequency of events within the supply chain, which can be directly linked to the frequency of potential disruptions or the rate at which the supply chain is 'stressed'.
 
     * delivery_status_count.png: Bar chart showing the counts of different delivery statuses.
       
