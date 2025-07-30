@@ -1,0 +1,24 @@
+{
+  "inter_arrival_time": {
+    "distribution": "weibull_min",
+    "parameters": [1.0240023635022566, 0.9740231038768862, 162.48705319762033]
+  },
+  "order_profit_per_order": {
+    "distribution": "weibull_min",
+    "parameters": [1.2059353025722461, 0.07980278079924516, 57.39386470749668]
+  },
+  "shipping_delay_days": {
+    "distribution": "expon",
+    "parameters": [0, 5.0]
+  },
+  "copula": {
+    "type": "gaussian",
+    "variables": ["order_profit_per_order", "shipping_delay_days"],
+    "parameters": {
+      "correlation_matrix": [
+        [1.0, -0.3],
+        [-0.3, 1.0]
+      ]
+    }
+  }
+}
