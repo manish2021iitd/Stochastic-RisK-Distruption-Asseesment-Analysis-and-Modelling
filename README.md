@@ -314,3 +314,10 @@ The following table summarizes the fitted parameters, Kolmogorov-Smirnov (KS) p-
         * Based on all metrics (extremely low KS p-value, highly unusual and large parameter values, and the highest AIC/BIC), the Pareto distribution is the least suitable fit for modeling the 'Order Profit Per Order' data, even when considering only the positive values. Its fit is statistically very poor, and the estimated parameters are implausible for a typical long-tail phenomenon. For modeling 'Order Profit Per Order', especially considering both profits and losses, a more robust and appropriate distribution or modeling approach would be necessary.
 
 * These plots help in visually assessing the goodness of fit.
+
+## 4. Alternative Copula Check
+Compare a Student-t copula with a Gaussian copula for modeling dependency between disruption variables.
+
+copula_alt.ipynb and a "margin of fit" table (likely meaning a comparison of fit metrics for the marginal distributions and the copulas).
+
+Copulas are used to model the dependence structure between random variables independently of their marginal distributions. This is crucial for multivariate risk modeling.
