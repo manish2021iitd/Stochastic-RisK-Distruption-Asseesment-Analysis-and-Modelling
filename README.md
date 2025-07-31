@@ -321,3 +321,9 @@ Compare a Student-t copula with a Gaussian copula for modeling dependency betwee
 copula_alt.ipynb and a "margin of fit" table (likely meaning a comparison of fit metrics for the marginal distributions and the copulas).
 
 Copulas are used to model the dependence structure between random variables independently of their marginal distributions. This is crucial for multivariate risk modeling.
+
+## 5.Risk-Dashboard Prototype
+                        
+
+ CLICK ON IT :: http://localhost:8501/
+ 
