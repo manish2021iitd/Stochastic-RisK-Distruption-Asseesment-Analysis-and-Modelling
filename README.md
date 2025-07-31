@@ -12,6 +12,9 @@
     ├── src/
     │   ├── __init__.py                     # Makes 'src' a Python package
     │   └── simulation_model.py             # (To contain simulation logic for Streamlit)
+    ├── Figures                             # All outout figures
+    ├── Output/
+    │   └──fitted_parameters.json
     ├── .gitignore                          # Specifies files/folders to ignore in Git
     ├── README.md                           # Project overview, setup, and instructions
     └── requirements.txt                    # List of Python dependencies
@@ -322,8 +325,8 @@ copula_alt.ipynb and a "margin of fit" table (likely meaning a comparison of fit
 
 Copulas are used to model the dependence structure between random variables independently of their marginal distributions. This is crucial for multivariate risk modeling.
 
-## 5.Risk-Dashboard Prototype
-                        
+## 5.Risk-Dashboard Prototype                    
 
- CLICK ON IT :: http://localhost:8501/
+* CLICK ON IT :: http://localhost:8501/
+* UPLOAD :: fitted_parameters.json
  
