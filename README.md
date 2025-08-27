@@ -408,4 +408,4 @@ Note: The degrees_of_freedom (df) value is a key parameter that determines the e
 2. copula_choice.md document: check /docs/ directory.
 
 3. Dashboard Note:
-A toggle note has been added to the simulation dashboard interface: model: t-copula. This ensures that users are aware of the underlying dependency structure driving the simulation results.
+A toggle note can be added to the simulation dashboard interface: model: t-copula. This ensures that users are aware of the underlying dependency structure driving the simulation results.
