@@ -361,7 +361,9 @@ We will fit both Gaussian and Student-t copulas to the pseudo-observations and e
     The Probability Integral Transform (PIT) is a core diagnostic for checking the marginal fit. If the marginal distribution is a good fit, the transformed data (pseudo-observations) will be uniformly distributed between 0 and 1. A Q-Q plot against a theoretical uniform distribution reveals how well this holds. As seen in the generated Q-Q plot , the pseudo-observations from our chosen marginals show a reasonably linear relationship with the uniform distribution, indicating that the marginal fits are sufficient for copula modeling.
 
 * Copula Comparison
+  
 <img width="939" height="126" alt="Screenshot 2025-08-27 at 3 21 15 PM" src="https://github.com/user-attachments/assets/7e34dd0f-a44e-4861-b085-abc4c97c57eb" />
+
 
     * Tail Exceedance Rates (**lambda**)
     Tail dependence is a crucial metric for supply chain risk. It measures the probability of extreme events occurring simultaneously.
