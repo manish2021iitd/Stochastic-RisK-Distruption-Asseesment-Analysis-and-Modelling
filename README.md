@@ -14,7 +14,10 @@
     │   └── simulation_model.py             # (To contain simulation logic for Streamlit)
     ├── Figures                             # All outout figures
     ├── Output/
-    │   └──fitted_parameters.json
+    │   ├──fitted_parameters.json
+    │   └──fitted_parameters_updated.json
+    ├── docs
+    │   └──copula_choice.md
     ├── .gitignore                          # Specifies files/folders to ignore in Git
     ├── README.md                           # Project overview, setup, and instructions
     └── requirements.txt                    # List of Python dependencies
@@ -380,7 +383,7 @@ Based on the analysis, the Student-t copula is the clearl good one. It provides 
 
 The final deliverables are:
 
-1. fitted_parameters.json update:
+1. fitted_parameters.json update:check (/outputs/fitted_parameters_updated.json)
 
 The simulation configuration file will be updated to use the Student-t copula. The new entry will look like this:
 
