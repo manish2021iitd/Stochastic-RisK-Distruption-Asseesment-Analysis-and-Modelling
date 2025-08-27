@@ -329,4 +329,82 @@ Copulas are used to model the dependence structure between random variables inde
 
 * CLICK ON IT :: http://localhost:8501/
 * UPLOAD :: fitted_parameters.json
- 
+
+## 6. Copula selection on full dataset
+
+### 1. Marginal Distribution Analysis for Lead Time
+First, we need to find the best-fitting marginal distribution for the shipping_delay_days variable, as copula modeling requires calibrated marginals. shipping_delay_days can be negative (for early shipments), so distributions like Exponential and Weibull will be fitted to the positive values only, while a Normal distribution can handle the entire range.
+<img width="795" height="152" alt="Screenshot 2025-08-27 at 3 14 51 PM" src="https://github.com/user-attachments/assets/c4b315fc-2a00-4488-a910-c90bf16c7c64" />
+Based on the lowest AIC and BIC, the Normal distribution provides the best fit for shipping_delay_days. While the KS p-value is still very low (common with large datasets), the information criteria strongly favor the Normal distribution over the others.
+
+### 2. Data Preparation for Copula Fitting
+The three variables for our copula analysis are:
+
+1. Severity: order_profit_per_order
+
+2. Frequency: inter_arrival_time
+
+3. Lead Time: shipping_delay_days
+
+For copula modeling, which works with continuous distributions, we must transform these variables into pseudo-observations using their respective marginal CDFs. This transformation maps the data to the unit hypercube (values between 0 and 1) while preserving the dependence structure.
+
+The logic of data preparation:
+* inter_arrival_time and shipping_delay_days are used as-is for their respective marginal CDFs.
+
+* order_profit_per_order contains negative values. A Weibull distribution was chosen as the best fit for the positive portion. For copula modeling, we need to handle the full distribution. A robust approach would use a mixture model, but for this task, a simplified approach involves using a single, best-fit distribution that can accommodate the data's range. The Weibull fit on the positive values is the best available, and we will use its CDF for transformation.
+
+### 3. Copula Fitting & Diagnostic Analysis
+We will fit both Gaussian and Student-t copulas to the pseudo-observations and evaluate their performance using the requested metrics.
+
+* Rosenblatt/PIT Diagnostics
+  
+    The Probability Integral Transform (PIT) is a core diagnostic for checking the marginal fit. If the marginal distribution is a good fit, the transformed data (pseudo-observations) will be uniformly distributed between 0 and 1. A Q-Q plot against a theoretical uniform distribution reveals how well this holds. As seen in the generated Q-Q plot , the pseudo-observations from our chosen marginals show a reasonably linear relationship with the uniform distribution, indicating that the marginal fits are sufficient for copula modeling.
+
+* Copula Comparison
+<img width="939" height="126" alt="Screenshot 2025-08-27 at 3 21 15 PM" src="https://github.com/user-attachments/assets/7e34dd0f-a44e-4861-b085-abc4c97c57eb" />
+
+    * Tail Exceedance Rates (**lambda**)
+    Tail dependence is a crucial metric for supply chain risk. It measures the probability of extreme events occurring simultaneously.
+
+    * Empirical Tail Exceedance: By calculating the proportion of simultaneous extreme events in our data, we find an empirical tail dependence **lambda_emp** approx **0.28**.
+
+    * Gaussian Copula: By definition, a Gaussian copula assumes no tail dependence, so its theoretical **lambda=0**. This is a poor match for our data.
+
+    * Student-t Copula: The fitted Student-t copula has a theoretical tail dependence of **lambda_t** approx **0.31**.
+
+This result (**lambda_t** approx **0.31**) is within **10%** of our empirical observation (**lambda_emp** approx **0.28**), satisfying a key project requirement.
+
+### 4. Final Choice and Deliverables
+Based on the analysis, the Student-t copula is the clearl good one. It provides a better statistical fit (lower AIC/BIC and higher out-of-sample log-likelihood) and, most importantly, accurately captures the tail dependence observed in the data. This is critical for a supply chain risk model, as it means the model can correctly simulate scenarios where severe disruptions are more likely to coincide with long lead times.
+
+The final deliverables are:
+
+1. fitted_parameters.json update:
+
+The simulation configuration file will be updated to use the Student-t copula. The new entry will look like this:
+
+```
+
+{
+  "copula": {
+    "type": "student_t",
+    "variables": ["order_profit_per_order", "shipping_delay_days", "inter_arrival_time"],
+    "parameters": {
+      "degrees_of_freedom": 5.4,
+      "correlation_matrix": [
+        [1.0, -0.41, -0.05],
+        [-0.41, 1.0, 0.08],
+        [-0.05, 0.08, 1.0]
+      ]
+    }
+  }
+}
+
+```
+
+Note: The degrees_of_freedom (df) value is a key parameter that determines the extent of tail dependence. A lower value indicates stronger dependence.
+
+2. copula_choice.md document: check /docs/ directory.
+
+3. Dashboard Note:
+A toggle note has been added to the simulation dashboard interface: model: t-copula. This ensures that users are aware of the underlying dependency structure driving the simulation results.
