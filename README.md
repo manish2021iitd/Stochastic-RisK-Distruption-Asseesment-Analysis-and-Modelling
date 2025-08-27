@@ -362,11 +362,10 @@ We will fit both Gaussian and Student-t copulas to the pseudo-observations and e
 
 * Copula Comparison
   
-<img width="939" height="126" alt="Screenshot 2025-08-27 at 3 21 15 PM" src="https://github.com/user-attachments/assets/7e34dd0f-a44e-4861-b085-abc4c97c57eb" />
+    <img width="939" height="126" alt="Screenshot 2025-08-27 at 3 21 15 PM" src="https://github.com/user-attachments/assets/7e34dd0f-a44e-4861-b085-abc4c97c57eb" />
 
 
-    * Tail Exceedance Rates (**lambda**)
-    Tail dependence is a crucial metric for supply chain risk. It measures the probability of extreme events occurring simultaneously.
+    * Tail Exceedance Rates (**lambda**): Tail dependence is a crucial metric for supply chain risk. It measures the probability of extreme events occurring simultaneously.
 
     * Empirical Tail Exceedance: By calculating the proportion of simultaneous extreme events in our data, we find an empirical tail dependence **lambda_emp** approx **0.28**.
 
