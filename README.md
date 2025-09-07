@@ -462,6 +462,7 @@ The parameter grid defines the specific values to be tested for each policy. A s
 * **simulation_model.py** updated to **updated_simulation_model.py** include these policies and a loop to iterate through the parameter grid.
 
 * Outputs:
+  
 |--- Running (s,S) Policy Experiments ---|
 |---|
 | Exp No. | policy | parameters | avg_total_cost | std_dev_cost |
@@ -469,6 +470,7 @@ The parameter grid defines the specific values to be tested for each policy. A s
 | 0 | sS | {'s': 10, 'S': 50} | 11754.372 | 245.295119 |
 | 1 | sS | {'s': 20, 'S': 70} | 16433.131 | 316.431322 |
 | 2 | sS | {'s': 30, 'S': 100} | 23060.791 | 375.186345 |
+
 
 |--- Running Myopic Heuristic Experiments ---|
 |---|
