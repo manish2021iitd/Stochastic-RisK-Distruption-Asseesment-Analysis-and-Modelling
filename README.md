@@ -459,5 +459,5 @@ The parameter grid defines the specific values to be tested for each policy. A s
 **s (Reorder Point)**: This parameter is typically related to the lead time demand. A simple approach is to set **s** equal to the **average lead time demand plus a safety stock**. we can start with a grid around our average lead time demand and then expand it.
 
 **S (Order-up-to Level)**: This is often a function of **s** and the reorder quantity. A common practice is to set **S = s + Q**, where **Q** is your lot size. Alternatively, we can test a range of **S** values independently.
-* **simulation_model.py** updated to **updated_simulation_model.py* include these policies and a loop to iterate through the parameter grid.
+* **simulation_model.py** updated to **updated_simulation_model.py** include these policies and a loop to iterate through the parameter grid.
 
