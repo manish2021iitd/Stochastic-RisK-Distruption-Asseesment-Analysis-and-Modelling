@@ -461,7 +461,7 @@ The parameter grid defines the specific values to be tested for each policy. A s
 **S (Order-up-to Level)**: This is often a function of **s** and the reorder quantity. A common practice is to set **S = s + Q**, where **Q** is your lot size. Alternatively, we can test a range of **S** values independently.
 * **simulation_model.py** updated to **updated_simulation_model.py** include these policies and a loop to iterate through the parameter grid.
 
-* Outputs:
+### Experiments:
   
 #### (s,S) Policy Experiments
 
