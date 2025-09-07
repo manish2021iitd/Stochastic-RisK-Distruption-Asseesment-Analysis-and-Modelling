@@ -463,17 +463,20 @@ The parameter grid defines the specific values to be tested for each policy. A s
 
 * Outputs:
   
-|--- Running (s,S) Policy Experiments ---|
-|---|
-| Exp No. | policy | parameters | avg_total_cost | std_dev_cost |
-| 0 | sS | {'s': 10, 'S': 50} | 11754.372 | 245.295119 |
-| 1 | sS | {'s': 20, 'S': 70} | 16433.131 | 316.431322 |
-| 2 | sS | {'s': 30, 'S': 100} | 23060.791 | 375.186345 |
+#### (s,S) Policy Experiments
+
+| Exp No. | Policy | Parameters          | Avg Total Cost | Std Dev Cost |
+|---------|--------|---------------------|----------------|--------------|
+| 0       | sS     | {'s': 10, 'S': 50} | 11754.372      | 245.295119   |
+| 1       | sS     | {'s': 20, 'S': 70} | 16433.131      | 316.431322   |
+| 2       | sS     | {'s': 30, 'S': 100} | 23060.791      | 375.186345   |
 
 
-|--- Running Myopic Heuristic Experiments ---|
-|---|
+
+#### Myopic Heuristic Experiments
+
 | Exp No. | policy | parameters | avg_total_cost | std_dev_cost |
+|---------|--------|---------------------|----------------|--------------|
 | 0 | myopic | {'target_days': 10} | 27303.048 | 548.657193 |
 | 1 | myopic | {'target_days': 20} | 27307.310 | 547.859916 |
 | 2 | myopic | {'target_days': 30} | 27311.991 | 534.231750 |
