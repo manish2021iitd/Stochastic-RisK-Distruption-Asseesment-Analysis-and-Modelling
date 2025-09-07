@@ -447,8 +447,15 @@ At a fixed review period (e.g., every 30 days), calculate the average demand ove
 ### Experiment Sheet Design
 To systematically evaluate the (s,S) policy, you need a structured experiment sheet. This sheet will serve as a single source of truth for all simulation runs, ensuring reproducibility and clear tracking of results.
 
-    | Experiment ID | Policy | Parameter Grid | Metrics | Observations |
-    |---|---|---|---|---|
-    | B-001 | (s,S) | s: [10, 20, 30] S: [50, 75, 100]|Total Cost, Service Level, Fill Rate| Initial run to find a basic working range |
-    | B-002 | (s,S) | s: [50, 70, 90] S: [100, 150, 200]| Total Cost, Service Level, Fill Rate | Total Cost	Testing a higher demand scenario |
-    | B-003 | Myopic Heuristic | (Based on a simple rule) | Total Cost, Service Level, Fill Rate | Compare a rule-based policy to (s,S) |
+| Experiment ID | Policy | Parameter Grid | Metrics | Observations |
+|---|---|---|---|---|
+| B-001 | (s,S) | s: [10, 20, 30] S: [50, 75, 100]|Total Cost, Service Level, Fill Rate| Initial run to find a basic working range |
+| B-002 | (s,S) | s: [50, 70, 90] S: [100, 150, 200]| Total Cost, Service Level, Fill Rate | Total Cost	Testing a higher demand scenario |
+| B-003 | Myopic Heuristic | (Based on a simple rule) | Total Cost, Service Level, Fill Rate | Compare a rule-based policy to (s,S) |
+
+#### Parameter Grids
+The parameter grid defines the specific values to be tested for each policy. A systematic grid search is a standard way to find a good range for s and S. Your final simulation_model.py can be extended to include these policies and a loop to iterate through the parameter grid.
+
+s (Reorder Point): This parameter is typically related to the lead time demand. A simple approach is to set s equal to the average lead time demand plus a safety stock. You can start with a grid around your average lead time demand and then expand it.
+
+S (Order-up-to Level): This is often a function of s and the reorder quantity. A common practice is to set S = s + Q, where Q is your lot size. Alternatively, you can test a range of S values independently.
