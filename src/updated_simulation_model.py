@@ -283,9 +283,9 @@ class InventorySimulator:
 # Example Usage: Connecting the two simulators
 # =============================================================================
 if __name__ == '__main__':
-    # sssume we've already done the distribution fitting and saved the parameters.
-    # The path to your JSON file.
-    params_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'data', 'fitted_parameters.json'))
+    # we've already done the distribution fitting and saved the parameters.
+    # update the path to **updated_fitted_parameters.json** JSON file.
+    params_path = "/kaggle/input/fitted-parameter/fitted_parameters_updated.json"
     
     # 1. Initialize the Supply Chain Simulator to get fitted distributions
     supply_chain_sim = SupplyChainSimulator(params_path)
@@ -331,4 +331,4 @@ if __name__ == '__main__':
     myopic_results = inv_sim.run_experiment('myopic', myopic_parameter_grid, num_sims, sim_period)
     print(myopic_results)
     
-    # Note: The myopic policy in this prototype is simplified. A full implementation would need to be more sophisticated to show its true performance.
+    # Note: The myopic policy in this prototype is simplified. A full implementation need to be more sophisticated to show its true performance.
