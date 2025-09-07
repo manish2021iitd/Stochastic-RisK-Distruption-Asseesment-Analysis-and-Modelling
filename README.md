@@ -430,5 +430,15 @@ Here is a design for your baseline policies and the structure for an experiment 
 * The size of the order is such that the inventory position returns to **S**. The quantity is calculated as **S** - inventory_position.
 
 * Why It's a Good Baseline?
+  
       * The (s,S) policy is simple to implement and understand. Its performance depends on only two parameters, making it easy to test and calibrate. It provides a solid benchmark against which more sophisticated, data-driven policies can be measured.
+
+#### (b). Myopic Heuristics
+* A myopic heuristic is a rule-based policy that makes decisions based only on immediate, short-term information, without considering future impacts. They are useful for their simplicity and as a lower bound for performance.
+
+Example: "Order up to average demand"
+
+At a fixed review period (e.g., every 30 days), calculate the average demand over the last X days. Place an order to bring your inventory up to that level.
+
+* Myopic heuristics are computationally cheap and serve as a "what if we just used a simple rule" benchmark. They highlight the value of more sophisticated inventory models.
 
