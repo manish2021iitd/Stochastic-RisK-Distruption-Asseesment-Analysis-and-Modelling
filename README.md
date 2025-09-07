@@ -412,3 +412,23 @@ Note: The degrees_of_freedom (df) value is a key parameter that determines the e
 
 3. Dashboard Note:
 A toggle note can be added to the simulation dashboard interface: model: t-copula. This ensures that users are aware of the underlying dependency structure driving the simulation results.
+
+## 7. Baseline Policies and Experiment Design
+
+Here our goal is to set up a framework for evaluating simple inventory control policies before moving on to more complex, simulation-based strategies.
+Baseline Policies and Experiment Design
+Here is a design for your baseline policies and the structure for an experiment sheet. The goal is to set up a framework for evaluating simple inventory control policies before moving on to more complex, simulation-based strategies.
+
+### 1. Baseline Inventory Policies
+#### (a). (s, S) Policy:
+* The (s,S) inventory policy is a classic and widely used control strategy. It's a simple, robust that is well-suited as a baseline for comparison.
+
+* This is a continuous-review inventory policy where **s** is the reorder point and **S** is the order-up-to level.
+
+* When the inventory position (on-hand inventory + on-order inventory) drops to **s** or below, an order is placed.
+
+* The size of the order is such that the inventory position returns to **S**. The quantity is calculated as **S** - inventory_position.
+
+* Why It's a Good Baseline?
+      * The (s,S) policy is simple to implement and understand. Its performance depends on only two parameters, making it easy to test and calibrate. It provides a solid benchmark against which more sophisticated, data-driven policies can be measured.
+
