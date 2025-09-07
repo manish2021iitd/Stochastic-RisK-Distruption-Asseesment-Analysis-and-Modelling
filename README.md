@@ -444,7 +444,7 @@ At a fixed review period (e.g., every 30 days), calculate the average demand ove
 
 * REFERENCE : https://link.springer.com/article/10.1007/s10479-021-04441-1
 
-### Experiment Sheet Design
+### 2. Experiment Sheet Design
 To systematically evaluate the (s,S) policy, we need a structured experiment sheet. This sheet will serve as a single source of truth for all simulation runs, ensuring reproducibility and clear tracking of results.
 
 | Experiment ID | Policy | Parameter Grid | Metrics | Observations |
@@ -461,7 +461,7 @@ The parameter grid defines the specific values to be tested for each policy. A s
 **S (Order-up-to Level)**: This is often a function of **s** and the reorder quantity. A common practice is to set **S = s + Q**, where **Q** is your lot size. Alternatively, we can test a range of **S** values independently.
 * **simulation_model.py** updated to **updated_simulation_model.py** include these policies and a loop to iterate through the parameter grid.
 
-### Experiments:
+### 3. Experiments:
   
 #### (s,S) Policy Experiments
 
