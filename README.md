@@ -480,3 +480,19 @@ The parameter grid defines the specific values to be tested for each policy. A s
 | 0 | myopic | {'target_days': 10} | 27303.048 | 548.657193 |
 | 1 | myopic | {'target_days': 20} | 27307.310 | 547.859916 |
 | 2 | myopic | {'target_days': 30} | 27311.991 | 534.231750 |
+
+#### Based on the simulation outputs:
+
+* The (s,S) policy shows a clear and significant performance difference across the tested parameters.
+* The {'s': 10, 'S': 50} configuration yielded the lowest average total cost at $11,754.37, with the lowest standard deviation, indicating a more stable cost outcome. (Best Performance)
+* As the reorder point (s) and order-up-to level (S) increase, the total cost of the policy also rises significantly. For example, the cost for s=30, S=100 is $23,060.79, nearly double the cost of the best-performing policy. This suggests that the higher holding costs associated with larger inventory levels outweigh the benefits of reduced shortages in these scenarios.
+* The results confirm that the (s,S) policy is sensitive to its parameter settings and a well-tuned policy can be very effective.
+* Whereas the myopic heuristic performed consistently and poorly across all tested parameters.
+* The average total costs for all three configurations were consistently high, ranging from $27,303.05 to $27,311.99. There is very little variation in cost among the different targets.(High and Stable Costs)
+* The myopic policy's average costs are more than double the cost of the best-performing (s,S) policy. This is because a simple, rule-based policy that doesn't strategically account for demand variability, lead time, or safety stock leads to frequent stockouts or excessive inventory, resulting in high shortage or holding costs.(Poor Performance) 
+
+#### Conclusion: 
+* The results clearly demonstrate that the (s,S) policy is a far more effective baseline for inventory control than the myopic heuristic.
+* The best (s,S) policy achieved an average total cost of $11,754.37, which is less than half the cost of the best myopic policy ($27,303.05).
+* This significant difference highlights the value of a continuous-review policy that intelligently manages reorder points and inventory levels, as opposed to a simple, short-sighted heuristic.
+* The (s,S) policy serves as a strong and sensible benchmark for future policy comparisons.
