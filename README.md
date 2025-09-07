@@ -443,3 +443,12 @@ At a fixed review period (e.g., every 30 days), calculate the average demand ove
 * Myopic heuristics are computationally cheap and serve as a "what if we just used a simple rule" benchmark. They highlight the value of more sophisticated inventory models.
 
 * REFERENCE : https://link.springer.com/article/10.1007/s10479-021-04441-1
+
+### Experiment Sheet Design
+To systematically evaluate the (s,S) policy, you need a structured experiment sheet. This sheet will serve as a single source of truth for all simulation runs, ensuring reproducibility and clear tracking of results.
+
+    | Experiment ID | Policy | Parameter Grid | Metrics | Observations |
+    |---|---|---|---|---|
+    | B-001 | (s,S) | s: [10, 20, 30] S: [50, 75, 100]|Total Cost, Service Level, Fill Rate| Initial run to find a basic working range |
+    | B-002 | (s,S) | s: [50, 70, 90] S: [100, 150, 200]| Total Cost, Service Level, Fill Rate | Total Cost	Testing a higher demand scenario |
+    | B-003 | Myopic Heuristic | (Based on a simple rule) | Total Cost, Service Level, Fill Rate | Compare a rule-based policy to (s,S) |
